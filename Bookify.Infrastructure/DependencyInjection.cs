@@ -32,7 +32,7 @@ public static class DependencyInjection
 
         services.AddDbContext<ApplicationDbContext>(options =>
         {
-            options.UseSqlServer(connectionString).UseSnakeCaseNamingConvention();
+            options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention();
         });
 
         services.AddScoped<IUserRepository, UserRepository>();

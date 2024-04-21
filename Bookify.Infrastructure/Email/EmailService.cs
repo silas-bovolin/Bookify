@@ -5,6 +5,6 @@ internal sealed class EmailService : IEmailService
 {
     public Task SendAsync(Domain.Users.Email recipent, string subject, string body)
     {
-        throw Task.CompletedTask;
+        return Task.CompletedTask;
     }
 }

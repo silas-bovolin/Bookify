@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bookify.Api.Controllers.Apartments;
 
 [ApiController]
-[Route("api/aypartments")]
-public class HomeController(ISender sender) : ControllerBase
+[Route("api/apartments")]
+public class ApartmentController(ISender sender) : ControllerBase
 {
     private readonly ISender _sender = sender;
 

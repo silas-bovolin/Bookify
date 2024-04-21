@@ -1,6 +1,6 @@
 ﻿using Bookify.Application.Abstractions.Data;
-using Microsoft.Data.SqlClient;
 using System.Data;
+using Npgsql;
 
 namespace Bookify.Infrastructure.Data;
 
@@ -9,7 +9,7 @@ internal sealed class SqlConnectionFactory(string connectionString) : ISqlConnec
     private readonly string _connectionString = connectionString;
     public IDbConnection CreateConnection()
     {
-        var connection = new SqlConnection(_connectionString);
+        var connection = new NpgsqlConnection(_connectionString);
         connection.Open();
 
         return connection;

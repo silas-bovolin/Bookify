@@ -9,14 +9,15 @@ services:
       dockerfile: Bookify.Api/Dockerfile
     depends_on:
       - bookify-db
-  
+
   bookify-db:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: postgres:latest
     container_name: Bookify.Db
     environment:
-      SA_PASSWORD: "Wbr2192r.!"
-      ACCEPT_EULA: "Y"
-      MSSQL_PID: "Developer"
+      - POSTGRES_DB=bookify
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/database:/var/lib/postgresql/data
     ports:
-      - "1433:1433"
-     
+      - 5432:5432
